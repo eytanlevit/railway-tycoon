@@ -1,0 +1,19 @@
+{
+  "name": "railway-tycoon",
+  "version": "0.1.0",
+  "description": "Railway Tycoon - A browser-based railroad management game",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "dev": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "game",
+    "railway",
+    "tycoon",
+    "simulation",
+    "browser-game"
+  ],
+  "author": "",
+  "license": "MIT"
+}

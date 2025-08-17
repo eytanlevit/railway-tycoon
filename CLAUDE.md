@@ -1,0 +1,1 @@
+- don't close the playwright browser, keep it open to enable faster iteration speed

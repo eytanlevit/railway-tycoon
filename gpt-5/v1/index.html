@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Railroad Tycoon — Map Only (gpt-5 v1)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="mapCanvas" aria-label="World map"></canvas>
+
+    <div id="hud">
+      <div id="controls">
+        <button id="zoomIn" title="Zoom in">+</button>
+        <button id="zoomOut" title="Zoom out">−</button>
+        <button id="resetView" title="Reset view">Reset</button>
+      </div>
+
+      <div id="minimap" aria-label="Minimap">
+        <canvas id="minimapCanvas"></canvas>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+  </html>
+

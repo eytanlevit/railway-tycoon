@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Tycoon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="ui-overlay">
+            <div id="top-bar">
+                <h1>Railway Tycoon</h1>
+                <div id="game-stats">
+                    <span id="zoom-level">100%</span>
+                    <span id="map-position">0, 0</span>
+                </div>
+            </div>
+            
+            <div id="controls-panel">
+                <button id="zoom-in" title="Zoom In">+</button>
+                <button id="zoom-out" title="Zoom Out">−</button>
+                <button id="reset-view" title="Reset View">⟲</button>
+                <button id="toggle-grid" title="Toggle Grid">⋮⋮</button>
+            </div>
+            
+            <div id="minimap">
+                <canvas id="minimap-canvas"></canvas>
+                <div id="minimap-viewport"></div>
+            </div>
+            
+            <div id="hover-info">
+                <span id="tile-info"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
