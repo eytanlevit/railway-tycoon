@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railroad Tycoon HTML5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Allow title and canvas stacking */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffffff; /* White background */
+            font-family: 'Arial', sans-serif; /* Default font for any other text */
+        }
+        canvas {
+            border: 3px solid #1a252f; /* Darker border */
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border-radius: 8px; /* Rounded corners for the canvas */
+        }
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: #ecf0f1; /* Light color for title */
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-shadow: 2px 2px #1a252f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Railroad Tycoon</h1>
+    <canvas id="gameCanvas"></canvas>
+
+    <script type="module">
+        // Temporary test script for PR #1
+        // This will be replaced by src/main.js in PR #2
+        
+        import * as constants from './src/constants.js';
+        import * as utils from './src/utils.js';
+        import * as renderer from './src/renderer.js';
+        
+        // Export everything to window for compatibility testing
+        Object.assign(window, constants);
+        Object.assign(window, utils);
+        Object.assign(window, renderer);
+        
+        // Set up minimal globals for testing
+        window.onload = function() {
+            const canvas = document.getElementById('gameCanvas');
+            if (!canvas) {
+                console.error("Canvas element not found!");
+                return;
+            }
+            const ctx = canvas.getContext('2d');
+            
+            // Setup dimensions
+            canvas.width = (constants.MAP_COLS + constants.MAP_ROWS) * constants.TILE_WIDTH_HALF + constants.TILE_WIDTH_HALF * 2;
+            canvas.height = (constants.MAP_COLS + constants.MAP_ROWS) * constants.TILE_HEIGHT_HALF + constants.TILE_HEIGHT_HALF * 8;
+            
+            // Set globals that functions expect
+            window.originX = canvas.width / 2;
+            window.originY = constants.TILE_HEIGHT_HALF * constants.MAP_ROWS * 0.5 + 50;
+            window.ctx = ctx;
+            window.TILE_WIDTH_HALF = constants.TILE_WIDTH_HALF;
+            window.TILE_HEIGHT_HALF = constants.TILE_HEIGHT_HALF;
+            
+            // Test message
+            console.log('PR #1 Test Page Loaded');
+            console.log('Constants available:', Object.keys(constants));
+            console.log('Utils available:', Object.keys(utils));
+            console.log('Renderer functions available:', Object.keys(renderer));
+            
+            // Simple test - draw a diamond
+            ctx.fillStyle = constants.COLORS.sky;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw a test diamond in the center
+            renderer.drawDiamond(canvas.width/2, canvas.height/2, constants.COLORS.grass, constants.COLORS.track);
+            
+            console.log('Test diamond drawn - if you see a green diamond, PR #1 is working!');
+        };
+    </script>
+</body>
+</html>
